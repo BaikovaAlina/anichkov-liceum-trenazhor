@@ -24,13 +24,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Build js/tasks.js from data/*.json (validate task bank)
-        run: python3 tools/build_tasks.py
-
-      - name: Inject Telegram Secrets into js/config.js
+      - name: Inject Telegram Secrets into config.js
         run: |
-          sed -i "s|__TELEGRAM_BOT_TOKEN__|${{ secrets.TELEGRAM_BOT_TOKEN }}|g" js/config.js
-          sed -i "s|__TELEGRAM_CHAT_ID__|${{ secrets.TELEGRAM_CHAT_ID }}|g" js/config.js
+          sed -i "s|__TELEGRAM_BOT_TOKEN__|${{ secrets.TELEGRAM_BOT_TOKEN }}|g" config.js
+          sed -i "s|__TELEGRAM_CHAT_ID__|${{ secrets.TELEGRAM_CHAT_ID }}|g" config.js
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
