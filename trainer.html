@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Интерактивный тренажёр · Поступление в 8 класс Аничкова лицея</title>
-  <link rel="stylesheet" href="css/design-tokens.css">
-  <link rel="stylesheet" href="css/styles.css">
+  <title>Тренажёр · Аничков лицей · Поступление в 8 класс</title>
+  <link rel="stylesheet" href="style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✏️</text></svg>">
 </head>
 <body>
@@ -16,7 +15,6 @@
       <div class="top-bar">
         <a href="index.html">← Ко всем урокам</a>
         <div style="display:flex; gap:10px; align-items:center;">
-          <a href="stats.html">📊 Статистика</a>
           <button class="btn-settings" onclick="openTelegramSettingsModal()">⚙️ Настройки Telegram</button>
         </div>
       </div>
@@ -24,16 +22,113 @@
       <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:16px; margin-bottom:16px;">
         <div>
           <h1 class="main-title" id="trainerTitle">Урок 1 · Классная работа</h1>
-          <p class="subtitle" id="trainerTopic">Действия с дробями</p>
+          <p class="subtitle" id="trainerTopic">Свойства действий и порядок действий</p>
         </div>
-
+        
         <!-- Выбор варианта и ввод имени -->
         <div style="display:flex; flex-direction:column; gap:8px; min-width:260px;">
           <label style="font-size:13.5px; color:#6d593c; font-weight:bold;">Ученик (Фамилия Имя):</label>
           <input type="text" id="studentNameInput" class="student-name-input" placeholder="Например: Смирнов Артём" style="font-size:15px; padding:6px 12px;">
 
           <label style="font-size:13.5px; color:#6d593c; font-weight:bold; margin-top:4px;">Выбрать работу:</label>
-          <select id="variantSelect" class="student-name-input" style="font-size:14.5px; padding:6px 8px; cursor:pointer;"></select>
+          <select id="variantSelect" class="student-name-input" style="font-size:14.5px; padding:6px 8px; cursor:pointer;">
+            <optgroup label="Модуль 1: Вычисления и преобразования">
+              <option value="K-1">Урок 1 · К-1 (Классная) — Свойства действий и порядок</option>
+              <option value="D-1">Урок 1 · Д-1 (Домашняя) — Свойства действий и порядок</option>
+              <option value="K-2">Урок 2 · К-2 (Классная) — Формулы сокращённого умножения</option>
+              <option value="D-2">Урок 2 · Д-2 (Домашняя) — Формулы сокращённого умножения</option>
+            </optgroup>
+            <optgroup label="Модуль 2: Пропорции, проценты, смеси">
+              <option value="K-3">Урок 3 · К-3 (Классная) — Пропорции и проценты</option>
+              <option value="D-3">Урок 3 · Д-3 (Домашняя) — Пропорции и проценты</option>
+              <option value="K-4">Урок 4 · К-4 (Классная) — Смеси, сплавы, концентрация</option>
+              <option value="D-4">Урок 4 · Д-4 (Домашняя) — Смеси, сплавы, концентрация</option>
+            </optgroup>
+            <optgroup label="Модуль 3: Степени и корни">
+              <option value="K-5">Урок 5 · К-5 (Классная) — Свойства степеней</option>
+              <option value="D-5">Урок 5 · Д-5 (Домашняя) — Свойства степеней</option>
+              <option value="K-6">Урок 6 · К-6 (Классная) — Квадратный корень</option>
+              <option value="D-6">Урок 6 · Д-6 (Домашняя) — Квадратный корень</option>
+            </optgroup>
+            <optgroup label="Модуль 4: Уравнения и системы">
+              <option value="K-7">Урок 7 · К-7 (Классная) — Линейные уравнения и системы</option>
+              <option value="D-7">Урок 7 · Д-7 (Домашняя) — Линейные уравнения и системы</option>
+              <option value="K-8">Урок 8 · К-8 (Классная) — Квадратные уравнения, Виет</option>
+              <option value="D-8">Урок 8 · Д-8 (Домашняя) — Квадратные уравнения, Виет</option>
+            </optgroup>
+            <optgroup label="Модуль 5: Неравенства и модуль">
+              <option value="K-9">Урок 9 · К-9 (Классная) — Линейные неравенства</option>
+              <option value="D-9">Урок 9 · Д-9 (Домашняя) — Линейные неравенства</option>
+              <option value="K-10">Урок 10 · К-10 (Классная) — Интервалы и модуль</option>
+              <option value="D-10">Урок 10 · Д-10 (Домашняя) — Интервалы и модуль</option>
+            </optgroup>
+            <optgroup label="Модуль 6: Текстовые задачи">
+              <option value="K-11">Урок 11 · К-11 (Классная) — Движение и работа</option>
+              <option value="D-11">Урок 11 · Д-11 (Домашняя) — Движение и работа</option>
+              <option value="K-12">Урок 12 · К-12 (Классная) — Проценты и смеси в задачах</option>
+              <option value="D-12">Урок 12 · Д-12 (Домашняя) — Проценты и смеси в задачах</option>
+            </optgroup>
+            <optgroup label="Модуль 7: Функции и графики">
+              <option value="K-13">Урок 13 · К-13 (Классная) — Линейная и квадратичная функции</option>
+              <option value="D-13">Урок 13 · Д-13 (Домашняя) — Линейная и квадратичная функции</option>
+              <option value="K-14">Урок 14 · К-14 (Классная) — Гипербола, модуль, графики</option>
+              <option value="D-14">Урок 14 · Д-14 (Домашняя) — Гипербола, модуль, графики</option>
+            </optgroup>
+            <optgroup label="Модуль 8: Прогрессии">
+              <option value="K-15">Урок 15 · К-15 (Классная) — Арифметическая прогрессия</option>
+              <option value="D-15">Урок 15 · Д-15 (Домашняя) — Арифметическая прогрессия</option>
+              <option value="K-16">Урок 16 · К-16 (Классная) — Геометрическая прогрессия</option>
+              <option value="D-16">Урок 16 · Д-16 (Домашняя) — Геометрическая прогрессия</option>
+            </optgroup>
+            <optgroup label="Модуль 9: Комбинаторика, логика, инварианты">
+              <option value="K-17">Урок 17 · К-17 (Классная) — Комбинаторика и Дирихле</option>
+              <option value="D-17">Урок 17 · Д-17 (Домашняя) — Комбинаторика и Дирихле</option>
+              <option value="K-18">Урок 18 · К-18 (Классная) — Инварианты и логика</option>
+              <option value="D-18">Урок 18 · Д-18 (Домашняя) — Инварианты и логика</option>
+            </optgroup>
+            <optgroup label="Модуль 10: Треугольники">
+              <option value="K-19">Урок 19 · К-19 (Классная) — Признаки равенства, элементы</option>
+              <option value="D-19">Урок 19 · Д-19 (Домашняя) — Признаки равенства, элементы</option>
+              <option value="K-20">Урок 20 · К-20 (Классная) — Пифагор и подобие</option>
+              <option value="D-20">Урок 20 · Д-20 (Домашняя) — Пифагор и подобие</option>
+            </optgroup>
+            <optgroup label="Модуль 11: Площади и отношения площадей">
+              <option value="K-21">Урок 21 · К-21 (Классная) — Площадь треугольника</option>
+              <option value="D-21">Урок 21 · Д-21 (Домашняя) — Площадь треугольника</option>
+              <option value="K-22">Урок 22 · К-22 (Классная) — Отношения площадей</option>
+              <option value="D-22">Урок 22 · Д-22 (Домашняя) — Отношения площадей</option>
+            </optgroup>
+            <optgroup label="Модуль 12: Четырёхугольники">
+              <option value="K-23">Урок 23 · К-23 (Классная) — Параллелограмм, ромб, квадрат</option>
+              <option value="D-23">Урок 23 · Д-23 (Домашняя) — Параллелограмм, ромб, квадрат</option>
+              <option value="K-24">Урок 24 · К-24 (Классная) — Трапеция и средняя линия</option>
+              <option value="D-24">Урок 24 · Д-24 (Домашняя) — Трапеция и средняя линия</option>
+            </optgroup>
+            <optgroup label="Модуль 13: Окружность">
+              <option value="K-25">Урок 25 · К-25 (Классная) — Углы, хорды и дуги</option>
+              <option value="D-25">Урок 25 · Д-25 (Домашняя) — Углы, хорды и дуги</option>
+              <option value="K-26">Урок 26 · К-26 (Классная) — Касательные, вписанные фигуры</option>
+              <option value="D-26">Урок 26 · Д-26 (Домашняя) — Касательные, вписанные фигуры</option>
+            </optgroup>
+            <optgroup label="Модуль 14: Векторы и координаты">
+              <option value="K-27">Урок 27 · К-27 (Классная) — Координатный метод</option>
+              <option value="D-27">Урок 27 · Д-27 (Домашняя) — Координатный метод</option>
+              <option value="K-28">Урок 28 · К-28 (Классная) — Векторы и длина</option>
+              <option value="D-28">Урок 28 · Д-28 (Домашняя) — Векторы и длина</option>
+            </optgroup>
+            <optgroup label="Модуль 15: Построения и разрезания">
+              <option value="K-29">Урок 29 · К-29 (Классная) — Клетчатая бумага</option>
+              <option value="D-29">Урок 29 · Д-29 (Домашняя) — Клетчатая бумага</option>
+              <option value="K-30">Урок 30 · К-30 (Классная) — Разрезания и построения</option>
+              <option value="D-30">Урок 30 · Д-30 (Домашняя) — Разрезания и построения</option>
+            </optgroup>
+            <optgroup label="Модуль 16: Финальный практикум">
+              <option value="K-31">Урок 31 · К-31 (Классная) — Вступительная: алгебра</option>
+              <option value="D-31">Урок 31 · Д-31 (Домашняя) — Вступительная: алгебра</option>
+              <option value="K-32">Урок 32 · К-32 (Классная) — Вступительная: геометрия</option>
+              <option value="D-32">Урок 32 · Д-32 (Домашняя) — Вступительная: геометрия</option>
+            </optgroup>
+          </select>
         </div>
       </div>
     </header>
@@ -69,23 +164,23 @@
     <div class="modal-box">
       <button class="modal-close" onclick="closeTelegramSettingsModal()">×</button>
       <h3 class="modal-title">⚙️ Настройки Telegram для учителя</h3>
-
+      
       <p style="font-size:15px; margin-bottom:14px; color:#4a3f2b;">
-        Результаты ДЗ отправляются через бот
+        Бот для отправки ДЗ: 
         <a href="https://t.me/ZVEROKZVEROKBOT" target="_blank" style="color:var(--chalk); font-weight:bold;">@ZVEROKZVEROKBOT</a>.
       </p>
 
       <div style="background:#fff; border:1px solid #d4c4a4; padding:14px; border-radius:6px; margin-bottom:16px; font-size:14px;">
-        <b>Как учителю получать отчёты учеников:</b><br>
-        1. Откройте Telegram и напишите боту <a href="https://t.me/ZVEROKZVEROKBOT" target="_blank" style="color:var(--chalk); font-weight:bold;">@ZVEROKZVEROKBOT</a> команду <code>/start</code>.<br>
-        2. Узнайте свой числовой <b>Chat ID</b> (например, написав боту <code>@userinfobot</code>).<br>
-        3. Введите ваш <b>Chat ID</b> в поле ниже и нажмите «Проверить связь 🔔».
+        <b>Как привязать приём отчётов:</b><br>
+        1. Откройте в Telegram бота <a href="https://t.me/ZVEROKZVEROKBOT" target="_blank" style="color:var(--chalk); font-weight:bold;">@ZVEROKZVEROKBOT</a> и нажмите <b>/start</b>.<br>
+        2. Узнайте свой числовой ID (например, через бот <code>@userinfobot</code>).<br>
+        3. Введите ID в поле ниже и нажмите «Проверить связь 🔔».
       </div>
 
       <div style="display:flex; flex-direction:column; gap:10px;">
-        <label for="settingChatId" style="font-weight:bold; font-size:15px;">Ваш Telegram Chat ID (или ID группы):</label>
-        <input type="text" id="settingChatId" class="student-name-input" placeholder="Например: 123456789" style="font-size:16px;">
-
+        <label for="settingChatId" style="font-weight:bold; font-size:15px;">Ваш Telegram Chat ID:</label>
+        <input type="text" id="settingChatId" class="student-name-input" placeholder="Например: 7928474241" style="font-size:16px;">
+        
         <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:8px;">
           <button class="btn-hero" onclick="saveTelegramSettings()" style="padding:8px 18px; font-size:14.5px;">Сохранить в браузере 💾</button>
           <button class="btn-send-tg" onclick="testTelegramPing()" style="padding:8px 18px; font-size:14.5px;">Проверить связь 🔔</button>
@@ -95,10 +190,9 @@
     </div>
   </div>
 
-  <script src="js/config.js"></script>
-  <script src="js/tasks.js"></script>
-  <script src="js/checker.js"></script>
-  <script src="js/telegram.js"></script>
-  <script src="js/app.js"></script>
+  <script src="config.js"></script>
+  <script src="theory.js"></script>
+  <script src="tasks.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
