@@ -434,7 +434,11 @@ function goToSlide(index) {
   if (index < 0 || index >= appState.slides.length) return;
   appState.slides.forEach((s, i) => s.classList.toggle("active", i === index));
   appState.currentSlide = index;
-  if (index === appState.slides.length - 1) calculateResults(true);
+  if (index === appState.slides.length - 1) {
+    calculateResults(true);
+    const rn = $("#reportStudentName");
+    if (rn && !rn.value.trim()) rn.value = appState.studentName;
+  }
   updateNav();
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
